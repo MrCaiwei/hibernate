@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hbuas.Orderitems" table="orderitems" schema="study">
+        <id name="itemid" column="itemid">
+            <generator class="increment"></generator>
+        </id>
+        <property name="productid" column="productid"/>
+        <property name="count" column="count"/>
+        <property name="price" column="price"/>
+
+        <many-to-one name="ordersByOrderid" column="orderid" class="com.hbuas.Orders"></many-to-one>
+    </class>
+</hibernate-mapping>

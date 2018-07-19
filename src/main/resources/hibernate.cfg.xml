@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+      <!-- 数据库用户名 -->
+      <!-- 数据库用户密码 -->
+      <!-- 驱动类 -->
+      <property name="connection.url">jdbc:mysql://localhost:3306/study</property>
+      <!-- 数据库URL -->
+      <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <!-- 数据库方言-->
+      <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+      <!-- 是否在SessionFactory创建后，自动创建数据库表，none/create/create-drop/update-->
+      <property name="hbm2ddl.auto">none</property>
+      <!-- 是否把执行的SQL语句输出到控制台 -->
+      <property name="show_sql">true</property>
+      <!-- 是否把控制台SQL语句格式化 -->
+      <property name="format_sql">true</property>
+
+      <mapping class="com.hbuas.User"/>
+      <mapping resource="User.hbm.xml"/>
+      <mapping class="com.hbuas.Orders"/>
+      <mapping resource="Orders.hbm.xml"/>
+      <mapping class="com.hbuas.Address"/>
+      <mapping resource="Address.hbm.xml"/>
+      <mapping resource="Orderitems.hbm.xml"/>
+      <mapping class="com.hbuas.Orderitems"/>
+
+
+      <!-- 映射文件配置，配置文件名必须包含其相对于根的全路径 -->
+      <!--<mapping resource="com/oracle/entity/User.hbm.xml" />-->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

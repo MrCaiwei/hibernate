@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hbuas.Orders" table="orders" schema="study">
+        <id name="orderid" column="orderid">
+            <generator class="increment"></generator>
+        </id>
+        <property name="times" column="times"/>
+        <property name="status" column="status"/>
+        <property name="userid" column="userid"/>
+
+        <one-to-one name="add" class="com.hbuas.Address" outer-join="true" cascade="all"></one-to-one>
+        <set name="orderitemsByOrderid"  inverse="false" lazy="true"  cascade="all">
+            <key>
+                <column name="orderid"/>
+            </key>
+            <one-to-many   class="com.hbuas.Orderitems"/>
+        </set>
+    </class>
+</hibernate-mapping>
